@@ -13,7 +13,7 @@
 <body>
     <header class="header container-fluid bg-info text-black text-center" id="header">
         <h1>Coding BFF</h1>
-        <h3>Pseudo Coding & Research Assitant</h3>
+        <h3>Pseudo Coding & Research Assistant</h3>
     </header>
 
     <div class="container row">
@@ -93,6 +93,7 @@
         </div>
 
         <div class="col-4">
+            
             <div class="row">
                 <div class="card text-center">
                     <div class="card-header">
@@ -112,26 +113,31 @@
                     </div>
                 </div>
             </div>
+            
 
             <!--<input type="text" class="inputYoutube" id="inputYoutube" placeholder="searchYoutube">
                 <p></p>Searching will play the first video-->
 
-            <!--<div class="row">
-                <input type="text" class="inputGoogle" id="inputGoogle" placeholder="searchGoogle">
-            </div>-->
+            <div class="row m-1" id="searchElement">
+                <div id="searchForm">
+                    <div>
+                        <input type="text" class="inputGoogle" id="inputGoogle" placeholder="searchGoogle">
+                    </div>
+                    <div>
+                        <button type="button" id="sendSearch">Search</button>
+                    </div>
+                </div>
+                <div id="searchResults"></div>
+            </div>
 
         </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-    <script>
-    $( function() {
-      $( "#sortable" ).sortable();
-    });
-    </script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js">
-    </script>
+    
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
