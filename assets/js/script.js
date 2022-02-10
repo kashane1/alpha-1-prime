@@ -1,4 +1,4 @@
-$("#sendSearch").on('click', function(event) {
+$("#sendGoogle").on('click', function(event) {
     event.preventDefault;
     var searchInput = $("#inputGoogle").val();
     console.log(searchInput);
@@ -17,12 +17,12 @@ $("#sendSearch").on('click', function(event) {
         // this console.log is to check the data and read it all to find out what I want to add to the page
         console.log(data);
 
-        // empty past search results if there are any
-        $("#searchResults").empty();
+        // need to empty the past search results if there are any
+        $("#googleResult").empty();
 
         // add the result count and time
-        $("#searchResults").append(function() {
-            return `<div class="row text-grey" id="searchInfo">About ${data.searchInformation.formattedTotalResults} results (${data.searchInformation.formattedSearchTime} seconds)</div>`
+        $("#googleResult").append(function() {
+            return `<div class="row text-grey" id="googleInfo">About ${data.searchInformation.formattedTotalResults} results (${data.searchInformation.formattedSearchTime} seconds)</div>`
         });
 
         // looping over the first 10 results from the search
@@ -31,7 +31,7 @@ $("#sendSearch").on('click', function(event) {
             var result = data.items[i];
 
             // this appends the results to that id
-            $("#searchResults").append(function() {
+            $("#googleResult").append(function() {
                 return `<div class="row result-box text-black bg-light" id="result${0}">
                     <h5 class="text-info small">
                         ${result.displayLink}
@@ -46,7 +46,49 @@ $("#sendSearch").on('click', function(event) {
             });
         }
     })
-
+    .catch(console.error);
 });
 
+$('#sendYoutube').on('click', function (event) {
+    event.preventDefault;
+    var searchInput = $("#inputYoutube").val();
 
+    fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&q="+searchInput+"&key=AIzaSyCLYNdBi4AZz2fvgLA6cw8cEhl88E-oCps")
+    .then(response => {
+        if (!response.ok) {
+            throw response;
+        }
+        return response.json();
+    })
+
+    .then(data => {
+        console.log(data);
+
+        // need to empty the past search results if there are any
+        $("#youtubeResult").empty();
+
+        // add the result count and time
+        $("#youtubeResult").append(function() {
+            return `<div class="row text-grey" id="youtubeInfo">Showing Top 5 Relevant Results</div>`
+        });
+
+        // looping over the first 10 results from the search
+        for (var i = 0; i < 5; i++) {
+            // creating an easier to use variable for the one result that we are looking at
+            var result = data.items[i];
+
+            // this appends the results to that id
+            $("#searchCard").append(function() {
+                return `<div class="row result-box text-black bg-light" id="result${0}">
+                    <h5 class="small">
+                        <a href="https://www.youtube.com/watch?v=${result.id.videoId}">${result.snippet.title}</a>
+                    </h5>
+                    <h4>
+                        <img src="${result.snippet.thumbnails.default.url}" alt=${result.id.kind}>
+                    </h4>
+                </div>`
+            });
+        }
+    })
+    .catch(console.error);
+});
