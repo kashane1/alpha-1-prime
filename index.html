@@ -16,73 +16,69 @@
         <h3>Pseudo Coding & Research Assistant</h3>
     </header>
 
-    <div class="container row">
-        <div class="col-8">
+    <div class="container-fluid row">
+        <div class="col-9">
             <div class="card">
                 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
                 To Do/To Learn
                 </h3>
                 <div class="card-body">
                 <div id="table" class="table-editable">
-                    <span class="table-add float-right mb-3 mr-2"
-                    ><a href="#!" class="text-success"
-                        ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
-                    ></span>
                     <table class="table table-bordered table-responsive-md table-striped text-center">
                     <thead>
                         <tr>
-                        <th class="text-center">Complete Y/N</th>
-                        <th class="text-center">Editable Area</th>
-                        <th class="text-center">Sample</th>
+                        <th class="text-center col-2">Complete</th>
+                        <th class="text-center col-6">Editable Area</th>
+                        <th class="text-center col-4">Links</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true">Psuedo Coding and Research Notes Area</td>
+                            <td class="pt-3-half" contenteditable="true">https://www.w3schools.com/</td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true"></td>
+                            <td class="pt-3-half" contenteditable="true"></td>
                         </td>
                         </tr>
                     </tbody>
@@ -92,40 +88,53 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-3">
             
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Search Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body" id="youtubeResult"></div>
+                    
+                    <div id="searchCard"></div>
+
+                    <div id="googleResult"></div>
+
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
             <div class="row" id="searchCard">
-                <div class="card text-center">
+                <div class="card p-1 text-center">
                     <div class="card-header">
-                      <ul class="nav nav-pills card-header-pills">
-                        <li class="nav-item">
-                          <a class="nav-link youtube" href="#">Search YouTube</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link google" href="#">Search Google</a>
-                        </li>
-                      </ul>
+                        <h5 class="card-header text-center font-weight-bold text-uppercase">Search YouTube for Answers</h5>
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title">Search YouTube for Answers</h5>
                       <input type="text" class="inputYoutube" id="inputYoutube" placeholder="searchYoutube">
-                      <a href="#" class="btn btn-primary" id="sendYoutube">Search</a>
+                      <a href="#" class="btn btn-primary" id="sendYoutube" data-toggle="modal" data-target="#staticBackdrop">Search</a>
                     </div>
                 </div>
                 <div id="youtubeResult"></div>
             </div>
-            
 
-            <!--<input type="text" class="inputYoutube" id="inputYoutube" placeholder="searchYoutube">
-                <p></p>Searching will play the first video-->
-
-            <div class="row m-1" id="searchElement">
-                <div class="card p-1" id="searchForm">
-                    <div>
-                        <input type="text" class="inputGoogle" id="inputGoogle" placeholder="searchGoogle">
+            <div class="row" id="searchElement">
+                <div class="card p-1 text-center" id="searchForm">
+                    <div class="card-header">
+                        <h5 class="card-header text-center font-weight-bold text-uppercase">Search Google for Answers</h5>
                     </div>
-                    <div>
-                        <button type="button" class="btn btn-primary" id="sendGoogle">Search</button>
+                    <div class="card-body">
+                        <input type="text" class="inputGoogle" id="inputGoogle" placeholder="searchGoogle">
+                        <button type="button" class="btn btn-primary" id="sendGoogle" data-toggle="modal" data-target="#staticBackdrop">Search</button>
                     </div>
                 </div>
                 <div id="googleResult"></div>
@@ -137,6 +146,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
