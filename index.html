@@ -20,8 +20,10 @@
         <div class="col-8">
             <div class="card">
                 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-                To Do/To Learn
+               STEPS TO LEARN
                 </h3>
+                <button type="button" class="btn save-btn" id="save-btn">Save</button>
+                <input type="submit" class="button add_another" value="Add another line"/>
                 <div class="card-body">
                 <div id="table" class="table-editable">
                     <span class="table-add float-right mb-3 mr-2"
@@ -29,18 +31,18 @@
                         ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
                     ></span>
                     <table class="table table-bordered table-responsive-md table-striped text-center">
-                    <thead>
-                        <tr>
-                        <th class="text-center">Complete Y/N</th>
-                        <th class="text-center">Editable Area</th>
-                        <th class="text-center">Sample</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
+                        <thead>
+                            <tr>
+                            <th class="text-center col-2">Complete</th>
+                            <th class="text-center col-6">Editable Area</th>
+                            <th class="text-center col-4">Links</th>
+                            </tr>
+                         </thead>
+                    <tbody class="tbody" id="table-body">
+                        <tr id="tr1">
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-                            <td class="pt-3-half" contenteditable="true">Sample</td>
+                            <td class="pt-3-half" contenteditable="true" id="task" placeholder="">Sample Text Here</td>
+                            <td class="pt-3-half input" contenteditable="true" id="links">Sample</td>
                         </td>
                         </tr>
                         <tr>
@@ -87,6 +89,7 @@
                         </tr>
                     </tbody>
                     </table>
+  
                 </div>
                 </div>
             </div>
