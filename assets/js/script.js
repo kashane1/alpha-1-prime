@@ -1,42 +1,96 @@
+
+var tableId = 9;
+
 //ADD ROW TO TABLE FUNCTIONS
 $(".add_another").click(function (event) {
   event.preventDefault;
-  $("#table-body").append(
-    `<tr>
-    <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-    <td class="pt-3-half" contenteditable="true">Sample Text Here</td>
-    <td class="pt-3-half" contenteditable="true">Sample</td>
-    </tr>`
+  $(".tbody").append(
+    `<tr class="tr" id="${tableId}">
+    <td
+      class="pt-3-half"
+      contenteditable="true"
+      id="define"
+    ></td>
+    <td class="pt-3-half" contenteditable="true" id="task"></td>
+    <td class="pt-3-half" contenteditable="true" id="link"></td>
+  </tr>`
   );
+  tableId++;
+
 });
 
 //LOCAL STORAGE FUNCTIONS ON SAVE BUTTON
 //1. TABLE BODY INPUT
 $(".save-btn").on("click", function () {
-  var inputId = $(this).find(".input").attr("id");
-  var inputValue = $("#" + inputId).val();
 
-  localStorage.setItem(inputId, inputValue);
+  function userInput(define, task, link) {
+    this.DefineLabel = define;
+    this.TaskList = task;
+    this.APILink = link;
+  }
+
+  var arr = [];
+  $(".tbody")
+    .find("tr")
+    .each(function (index, item) {
+      var define = $(item).find("td").eq(0).text();
+      var task = $(item).find("td").eq(1).text();
+      var link = $(item).find("td").eq(2).text();
+      arr.push(new userInput(define, task, link));
+    });
+
+  localStorage.setItem("userInput", JSON.stringify(arr));
 });
 
-//PREVENT INPUT CLEAR ON PAGE REFRESH
-function showInput() {
-  var tableEl = $(".input");
-  tableEl.each(function (i) {
-    console.log(i);
-    var inputKey = $(this).attr("id");
-    var getInput = localStorage.getItem(inputKey);
-    $(this).val(getInput);
-  });
+// //PREVENT INPUT CLEAR ON PAGE REFRESH
+var arr2 = [];
+function getInputs() {
+  var getLocal = localStorage.getItem("userInput");
+  arr2 = JSON.parse(getLocal);
+  // console.log(arr2);
+  $(".tbody")
+    .find("tr")
+    .each(function (index, item) {
+      $(item).find("td").eq(0).text(arr2[index].DefineLabel);
+      $(item).find("td").eq(1).text(arr2[index].TaskList);
+      $(item).find("td").eq(2).text(arr2[index].APILink);
+    });
 }
-showInput();
 
-//2. NEW ROW
+getInputs();
 
+function addedInputs() {
+  $(".tbody").append(
+    `<tr class="tr" id="${tableId}">
+    <td
+      class="pt-3-half"
+      contenteditable="true"
+      id="define"
+    ></td>
+    <td class="pt-3-half" contenteditable="true" id="task"></td>
+    <td class="pt-3-half" contenteditable="true" id="link"></td>
+  </tr>`
+  );
+}
 
+if (arr2.length > 8) {
+  addedInputs();
+  for (var i = 8; i < arr2.length++; i++) {
+    $(".tbody").append(
+      `<tr class="tr" id="${i++}">
+      <td
+        class="pt-3-half"
+        contenteditable="true"
+        id="define"
+      ></td>
+      <td class="pt-3-half" contenteditable="true" id="task"></td>
+      <td class="pt-3-half" contenteditable="true" id="link"></td>
+    </tr>`
+    );
+  }
 
-
-
+  getInputs();
+}
 
 
 //GOGGLE API
