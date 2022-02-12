@@ -1,4 +1,15 @@
-.pt-3-half { 
-    padding-top : 1.5rem; 
+td {
+  white-space: normal !important;
+  word-wrap: break-word;
+}
+table {
+  table-layout: fixed;
 }
 
+.pt-3-half {
+  padding-top: 1.5rem;
+}
+
+#searchCard {
+  width: 300px;
+}

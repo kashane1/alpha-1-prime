@@ -1,3 +1,4 @@
+
 var tableId = 9;
 
 //ADD ROW TO TABLE FUNCTIONS
@@ -15,11 +16,13 @@ $(".add_another").click(function (event) {
   </tr>`
   );
   tableId++;
+
 });
 
 //LOCAL STORAGE FUNCTIONS ON SAVE BUTTON
 //1. TABLE BODY INPUT
 $(".save-btn").on("click", function () {
+
   function userInput(define, task, link) {
     this.DefineLabel = define;
     this.TaskList = task;
@@ -88,6 +91,7 @@ if (arr2.length > 8) {
 
   getInputs();
 }
+
 
 //GOGGLE API
 $("#sendGoogle").on("click", function (event) {
