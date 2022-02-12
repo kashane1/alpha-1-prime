@@ -20,8 +20,10 @@
         <div class="col-9">
             <div class="card">
                 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-                To Do/To Learn
+               STEPS TO LEARN
                 </h3>
+                <button type="button" class="btn save-btn" id="save-btn">Save</button>
+                <input type="submit" class="button add_another" value="Add another line"/>
                 <div class="card-body">
                 <div id="table" class="table-editable">
                     <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -32,12 +34,11 @@
                         <th class="text-center col-4">Links</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody class="tbody" id="table-body">
+                        <tr id="tr1">
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
-                            <td class="pt-3-half" contenteditable="true">Psuedo Coding and Research Notes Area</td>
-                            <td class="pt-3-half" contenteditable="true">https://www.w3schools.com/</td>
-                        </td>
+                            <td class="pt-3-half" contenteditable="true" id="task" placeholder="">Sample Text Here</td>
+                            <td class="pt-3-half input" contenteditable="true" id="links">Sample</td>
                         </tr>
                         <tr>
                             <td class="pt-3-half" contenteditable="false"><input type="checkbox" class="btn-check toggleButton" id="toggleButton1"></td>
@@ -83,6 +84,7 @@
                         </tr>
                     </tbody>
                     </table>
+  
                 </div>
                 </div>
             </div>

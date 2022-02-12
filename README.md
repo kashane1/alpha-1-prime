@@ -10,7 +10,7 @@ So that my tasks can be completed within one window and remain organized effecti
 Given a coding planner with interactive features
 When I complete tasks
 Then I can mark them as completed
-When tasks are maked complete 
+When tasks are marked complete 
 They can be sorted and moved to the bottom of the list
 Planner content can be clicked and searched using the Google/or Youtube API
 
