@@ -1,6 +1,10 @@
 //global variable to be used later
 var tableId = 9;
-
+function userInput(define, task, link) {
+    this.DefineLabel = define;
+    this.TaskList = task;
+    this.APILink = link;
+}
 //ADD ROW TO TABLE FUNCTIONS
 $(".add_another").click(function (event) {
     event.preventDefault;
@@ -66,7 +70,7 @@ function addedInputs() {
 };
 
 if (arr2.length > 8) {
-    addedInputs();
+    // addedInputs();
     for (var i = 8; i < arr2.length++; i++) {
         $(".tbody").append(
         `<tr class="tr" id="${i++}">
