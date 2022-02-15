@@ -57,20 +57,11 @@ function getInputs() {
         });
 };
 
+// getinputs is for page load, local storage to the initial 8 rows
 getInputs();
 
-function addedInputs() {
-    $(".tbody").append(
-        `<tr class="tr" id="${tableId}">
-        <td class="pt-3-half" contenteditable="true" id="define"></td>
-        <td class="pt-3-half" contenteditable="true" id="task"></td>
-        <td class="pt-3-half" contenteditable="true" id="link"></td>
-        </tr>`
-    );
-};
-
+// this if statement will load added rows on page load, if they exist in local storage
 if (arr2.length > 8) {
-    // addedInputs();
     for (var i = 8; i < arr2.length++; i++) {
         $(".tbody").append(
         `<tr class="tr" id="${i++}">

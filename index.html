@@ -9,21 +9,27 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
-  <body>
+  <body class="hero-image">
+    
+
     <header class="header container-fluid bg-info text-black text-center" id="header">
         <h1>Coding BFF</h1>
-        <h3>Pseudo Coding & Research Assistant</h3>
+        <h4>Pseudo Coding & Research Assistant</h4>
     </header>
 
     <div class="container row">
         <!-- Left side of page -->
         <div class="col-9">
             <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+                <h3 class="card-header text-center font-weight-bold text-uppercase py-4 text-black">
                     CODING GOALS
                 </h3>
-                <button type="button" class="btn save-btn" id="save-btn">Save</button>
-                <input type="submit" class="button add_another" value="Add another line"/>
+
+                <div class="display-flex justify-space-around">
+                    <input type="submit" class="col-4 btn button add_another btn-primary" value="Add another line"/>
+                    <button type="button" class="col-4 btn button save-btn btn-primary" id="save-btn">Save</button>
+                </div>
+
                 <div class="card-body">
                     <div id="table" class="table-editable">
                     <span class="table-add float-right mb-3 mr-2">
@@ -149,7 +155,7 @@
                 </div>
             </div>
 
-            <!-- Modal google view link -->
+            <!-- Modal google view link (wanted to make google link open in a modal)
             <div class="modal fade" id="viewGoogleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -167,13 +173,14 @@
                     </div>
                 </div>
             </div>
+            -->
 
 
             <!-- Main Search Cards -->
-            <div class="row" id="searchCard">
+            <div class="row" id="searchCard1">
                 <div class="card p-1 text-center">
                     <div class="card-header">
-                        <h5 class="card-header text-center font-weight-bold text-uppercase">Search YouTube for Answers</h5>
+                        <h5 class="card-header text-center font-weight-bold text-uppercase text-black">Search YouTube for Answers</h5>
                     </div>
                     <div class="card-body">
                     <input type="text" class="inputYoutube" id="inputYoutube" placeholder="searchYoutube">
@@ -183,10 +190,10 @@
                 <div id="youtubeResult"></div>
             </div>
 
-            <div class="row" id="searchElement">
-                <div class="card p-1 text-center" id="searchForm">
+            <div class="row" id="searchCard2">
+                <div class="card p-1 text-center">
                     <div class="card-header">
-                        <h5 class="card-header text-center font-weight-bold text-uppercase">Search Google for Answers</h5>
+                        <h5 class="card-header text-center font-weight-bold text-uppercase text-black">Search Google for Answers</h5>
                     </div>
                     <div class="card-body">
                         <input type="text" class="inputGoogle" id="inputGoogle" placeholder="searchGoogle">

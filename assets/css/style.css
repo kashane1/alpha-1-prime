@@ -1,7 +1,17 @@
+.hero-image {
+  background-image: url('../images/background.jpeg');
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 td {
   white-space: normal !important;
   word-wrap: break-word;
 }
+
 table {
   table-layout: fixed;
 }
@@ -10,6 +20,77 @@ table {
   padding-top: 1.5rem;
 }
 
-#searchCard {
+header {
+  padding: 0.375rem;
+  background-color:transparent;
+  color: #D9E9E8;
+}
+
+
+html, body {
+  background-size: 2000px;
+  background-color: transparent;
+  padding: 1.5rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0, 0, 0.5rem;
+  line-height: 1.10;
+}
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1rem;
+  text-align-last: center;
+}
+
+h3 {
+  font-size: 2rem;
+  text-align: center;
+  background:transparent;
+}
+
+.bg-info {
+  background: transparent !important;
+}
+
+.card {
+  border: 1px solid white;
+  float: none;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.card .card-header {
+  background:transparent;
+  text-emphasis-color: black;
+  background-color: transparent;
+}
+
+.row {
+  padding-bottom: 1.5rem;
+}
+
+.card-body{
+  margin-left: 10px;
+  max-width: 1000px;
+}
+
+#searchCard1{
   width: 300px;
+  border-color: white;
+}
+
+#searchCard2 {
+  width: 300px;
+  border-color: white;
 }
