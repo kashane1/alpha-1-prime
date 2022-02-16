@@ -1,80 +1,3 @@
-//global variable to be used later
-var tableId = 9;
-function userInput(define, task, link) {
-    this.DefineLabel = define;
-    this.TaskList = task;
-    this.APILink = link;
-}
-//ADD ROW TO TABLE FUNCTIONS
-$(".add_another").click(function (event) {
-    event.preventDefault;
-    $(".tbody").append(
-        `<tr class="tr" id="${tableId}">
-        <td class="pt-3-half" contenteditable="true" id="define"></td>
-        <td class="pt-3-half" contenteditable="true" id="task"></td>
-        <td class="pt-3-half" contenteditable="true" id="link"></td>
-        </tr>`
-    );
-    tableId++;
-
-});
-
-//LOCAL STORAGE FUNCTIONS ON SAVE BUTTON
-//1. TABLE BODY INPUT
-$(".save-btn").on("click", function () {
-
-    function userInput(define, task, link) {
-        this.firstColumn = define;
-        this.TaskList = task;
-        this.APILink = link;
-    }
-
-    var arr = [];
-    $(".tbody")
-        .find("tr")
-        .each(function (index, item) {
-            var define = $(item).find("td").eq(0).text();
-            var task = $(item).find("td").eq(1).text();
-            var link = $(item).find("td").eq(2).text();
-            arr.push(new userInput(define, task, link));
-        });
-
-    localStorage.setItem("userInput", JSON.stringify(arr));
-});
-
-// //PREVENT INPUT CLEAR ON PAGE REFRESH
-var arr2 = [];
-function getInputs() {
-    var getLocal = localStorage.getItem("userInput");
-    arr2 = JSON.parse(getLocal);
-    // console.log(arr2);
-    $(".tbody")
-        .find("tr")
-        .each(function (index, item) {
-            $(item).find("td").eq(0).text(arr2[index].firstColumn);
-            $(item).find("td").eq(1).text(arr2[index].TaskList);
-            $(item).find("td").eq(2).text(arr2[index].APILink);
-        });
-};
-
-// getinputs is for page load, local storage to the initial 8 rows
-getInputs();
-
-// this if statement will load added rows on page load, if they exist in local storage
-if (arr2.length > 8) {
-    for (var i = 8; i < arr2.length++; i++) {
-        $(".tbody").append(
-        `<tr class="tr" id="${i++}">
-        <td class="pt-3-half" contenteditable="true" id="define"></td>
-        <td class="pt-3-half" contenteditable="true" id="task"></td>
-        <td class="pt-3-half" contenteditable="true" id="link"></td>
-        </tr>`
-        );
-    };
-    getInputs();
-};
-
-
 //GOGGLE API
 $("#sendGoogle").on('click', function(event) {
     event.preventDefault;
@@ -188,3 +111,81 @@ $('#playYoutubeModal').on('hide.bs.modal', function (event) {
     // using this to stop playing video on close
     $("#video").attr('src',$(event.relatedTarget).attr('')); 
 }) 
+
+//global variable to be used later
+var tableId = 9;
+function userInput(define, task, link) {
+    this.DefineLabel = define;
+    this.TaskList = task;
+    this.APILink = link;
+}
+//ADD ROW TO TABLE FUNCTIONS
+$(".add_another").click(function (event) {
+    event.preventDefault;
+    $(".tbody").append(
+        `<tr class="tr" id="${tableId}">
+        <td class="pt-3-half" contenteditable="true" id="define"></td>
+        <td class="pt-3-half" contenteditable="true" id="task"></td>
+        <td class="pt-3-half" contenteditable="true" id="link"></td>
+        </tr>`
+    );
+    tableId++;
+
+});
+
+//LOCAL STORAGE FUNCTIONS ON SAVE BUTTON
+//1. TABLE BODY INPUT
+$(".save-btn").on("click", function () {
+
+    function userInput(define, task, link) {
+        this.firstColumn = define;
+        this.TaskList = task;
+        this.APILink = link;
+    }
+
+    var arr = [];
+    $(".tbody")
+        .find("tr")
+        .each(function (index, item) {
+            var define = $(item).find("td").eq(0).text();
+            var task = $(item).find("td").eq(1).text();
+            var link = $(item).find("td").eq(2).text();
+            arr.push(new userInput(define, task, link));
+        });
+
+    localStorage.setItem("userInput", JSON.stringify(arr));
+});
+
+// //PREVENT INPUT CLEAR ON PAGE REFRESH
+var arr2 = [];
+function getInputs() {
+    var getLocal = localStorage.getItem("userInput");
+    arr2 = JSON.parse(getLocal);
+    // console.log(arr2);
+    $(".tbody")
+        .find("tr")
+        .each(function (index, item) {
+            $(item).find("td").eq(0).text(arr2[index].firstColumn);
+            $(item).find("td").eq(1).text(arr2[index].TaskList);
+            $(item).find("td").eq(2).text(arr2[index].APILink);
+        });
+};
+
+// getinputs is for page load, local storage to the initial 8 rows
+getInputs();
+
+// this if statement will load added rows on page load, if they exist in local storage
+if (arr2.length > 8) {
+    for (var i = 8; i < arr2.length++; i++) {
+        $(".tbody").append(
+        `<tr class="tr" id="${i++}">
+        <td class="pt-3-half" contenteditable="true" id="define"></td>
+        <td class="pt-3-half" contenteditable="true" id="task"></td>
+        <td class="pt-3-half" contenteditable="true" id="link"></td>
+        </tr>`
+        );
+    };
+    getInputs();
+};
+
+
