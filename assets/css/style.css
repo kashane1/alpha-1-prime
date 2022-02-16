@@ -65,15 +65,16 @@ h3 {
 
 .card {
   border: 1px solid white;
-  float: none;
+  /*float: none;*/
   margin: 0 auto;
   background-color: transparent;
 }
 
 .card .card-header {
-  background:transparent;
-  text-emphasis-color: black;
+  background: transparent;
+  /*text-emphasis-color: black;*/
   background-color: transparent;
+  border-bottom: none;
 }
 
 .row {

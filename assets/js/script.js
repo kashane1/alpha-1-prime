@@ -24,7 +24,7 @@ $(".add_another").click(function (event) {
 $(".save-btn").on("click", function () {
 
     function userInput(define, task, link) {
-        this.DefineLabel = define;
+        this.firstColumn = define;
         this.TaskList = task;
         this.APILink = link;
     }
@@ -51,7 +51,7 @@ function getInputs() {
     $(".tbody")
         .find("tr")
         .each(function (index, item) {
-            $(item).find("td").eq(0).text(arr2[index].DefineLabel);
+            $(item).find("td").eq(0).text(arr2[index].firstColumn);
             $(item).find("td").eq(1).text(arr2[index].TaskList);
             $(item).find("td").eq(2).text(arr2[index].APILink);
         });
@@ -106,7 +106,7 @@ $("#sendGoogle").on('click', function(event) {
 
             // this appends the results to that id
             $("#googleResult").append(function() {
-                return `<div class="row result-box text-black bg-light" id="result${0}">
+                return `<div class="row display-block result-box text-black bg-white" id="result${0}">
                     <h5 class="text-info small">
                         ${result.displayLink}
                     </h5>
@@ -142,11 +142,11 @@ $('#sendYoutube').on('click', function (event) {
 
         // add the result count and time
         $("#youtubeResult").append(function() {
-            return `<div class="row text-grey" id="youtubeInfo">Showing Top 5 Relevant Results</div>`
+            return `<div class="row text-grey" id="youtubeInfo">Showing Top 10 Relevant Results</div>`
         });
 
         // looping over the first 10 results from the search
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 10; i++) {
             // creating an easier to use variable for the one result that we are looking at
             var result = data.items[i];
 
@@ -156,14 +156,14 @@ $('#sendYoutube').on('click', function (event) {
 
             // this appends the results to that id
             $("#youtubeResult").append(function() {
-                return `<div class="row result-box text-black bg-light" id="result${0}">
+                return `<div class="row result-box text-black bg-white" id="result${0}">
                     <div class="display-flex">
                         <div>
-                            <button type="button" class="btn-link video-btn" data-toggle="modal" data-target="#playYoutubeModal" style="border: none;" data-content="https://www.youtube.com/embed/${result.id.videoId}"><img alt=${result.id.kind} src="${result.snippet.thumbnails.default.url}"></button>
+                            <button type="button" class="btn-link video-btn bg-white" data-toggle="modal" data-target="#playYoutubeModal" style="border: none;" data-content="https://www.youtube.com/embed/${result.id.videoId}"><img alt=${result.id.kind} src="${result.snippet.thumbnails.default.url}"></button>
                         </div>
                         <div>
                             <h5 class="">
-                                <button type="button" class="btn-link video-btn" data-toggle="modal" data-target="#playYoutubeModal" style="border: none;" data-content="https://www.youtube.com/embed/${result.id.videoId}">${result.snippet.title}</button>
+                                <button type="button" class="btn-link video-btn bg-white" data-toggle="modal" data-target="#playYoutubeModal" style="border: none;" data-content="https://www.youtube.com/embed/${result.id.videoId}">${result.snippet.title}</button>
                             </h5>
                             <div class="text-primary">
                                 <h5 class="small">Date Published: ${dateCreated}</h5>
@@ -186,5 +186,5 @@ $('#playYoutubeModal').on('shown.bs.modal', function (event) {
 
 $('#playYoutubeModal').on('hide.bs.modal', function (event) {
     // using this to stop playing video on close
-    $("#video").attr('src',$(event.relatedTarget).attr('data-content')); 
+    $("#video").attr('src',$(event.relatedTarget).attr('')); 
 }) 
